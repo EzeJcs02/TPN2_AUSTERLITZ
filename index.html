@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Recorrido - TP Nº2 Lenguaje IV</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📍 Historial de Recorrido</h1>
+            <p>TP Nº2 - Lenguaje IV - Universidad Católica de Salta</p>
+        </div>
+
+        <div class="content">
+            <div id="map"></div>
+
+            <div class="sidebar">
+                <div class="control-panel">
+                    <h3>🎮 Controles</h3>
+                    <div class="control-buttons">
+                        <button class="btn-start" id="btnStart">▶️ Iniciar Tracking</button>
+                        <button class="btn-stop btn-disabled" id="btnStop" disabled>⏹️ Detener Tracking</button>
+                        <button class="btn-clear" id="btnClear">🗑️ Limpiar Historial</button>
+                    </div>
+                </div>
+
+                <div class="status">
+                    <div class="status-label">Estado</div>
+                    <div class="status-value" id="statusValue">⏸️ Inactivo</div>
+                </div>
+
+                <div class="status">
+                    <div class="status-label">Puntos registrados</div>
+                    <div class="status-value" id="pointCount">0</div>
+                </div>
+
+                <div class="status">
+                    <div class="status-label">Distancia total</div>
+                    <div class="status-value" id="totalDistance">0 m</div>
+                </div>
+
+                <div class="info-box">
+                    <strong>💡 Instrucciones:</strong><br>
+                    Haz clic en "Iniciar Tracking" para comenzar a registrar tu ubicación. El sistema mostrará tu posición en el mapa y trazará una línea roja con tu recorrido.
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 20px; border-top: 1px solid #eee;">
+            <div class="position-history">
+                <h3>📋 Historial de Posiciones</h3>
+                <div id="historyList" class="empty-history">
+                    No hay posiciones registradas
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <!-- AGREGAR ESTAS LÍNEAS -->
+    <script src="script.js"></script>
+    
+</body>
+</html>

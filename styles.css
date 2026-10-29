@@ -1,0 +1,300 @@
+/* ======================================
+   ESTILOS GENERALES - TP Nº2
+   Historial de Recorrido con Geolocalización
+   ====================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* ======================================
+   HEADER - Encabezado
+   ====================================== */
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* ======================================
+   CONTENT - Contenido Principal
+   ====================================== */
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 20px;
+    padding: 20px;
+    min-height: 600px;
+}
+
+#map {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-height: 500px;
+}
+
+/* ======================================
+   SIDEBAR - Barra Lateral
+   ====================================== */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.control-panel {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.control-panel h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.control-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ======================================
+   BOTONES
+   ====================================== */
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-start {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-stop {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-stop:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+}
+
+.btn-clear {
+    background: #95a5a6;
+    color: white;
+}
+
+.btn-clear:hover {
+    background: #7f8c8d;
+    transform: translateY(-2px);
+}
+
+.btn-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ======================================
+   STATUS - Estado y Contadores
+   ====================================== */
+
+.status {
+    background: white;
+    border-left: 4px solid #667eea;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.status-label {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.status-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* ======================================
+   POSITION HISTORY - Historial
+   ====================================== */
+
+.position-history {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.position-history h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.position-item {
+    background: white;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border-left: 3px solid #667eea;
+    font-size: 0.85em;
+}
+
+.position-time {
+    color: #999;
+    font-size: 0.8em;
+}
+
+.position-coords {
+    color: #667eea;
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+.position-accuracy {
+    color: #666;
+    font-size: 0.8em;
+    margin-top: 2px;
+}
+
+.empty-history {
+    text-align: center;
+    color: #999;
+    padding: 20px 10px;
+}
+
+/* ======================================
+   INFO BOX - Caja de Información
+   ====================================== */
+
+.info-box {
+    background: #e8f4f8;
+    border-left: 4px solid #3498db;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+.info-box strong {
+    color: #3498db;
+}
+
+/* ======================================
+   SPINNER - Indicador de Carga
+   ====================================== */
+
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 3px solid rgba(102, 126, 234, 0.3);
+    border-radius: 50%;
+    border-top-color: #667eea;
+    animation: spin 0.8s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ======================================
+   RESPONSIVE - Diseño Responsivo
+   ====================================== */
+
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .position-history {
+        max-height: 300px;
+    }
+}
+
+/* ======================================
+   SCROLLBAR PERSONALIZADA
+   ====================================== */
+
+.position-history::-webkit-scrollbar {
+    width: 6px;
+}
+
+.position-history::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.position-history::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+.position-history::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
